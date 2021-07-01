@@ -1,22 +1,19 @@
 package com.hive4bee.ansj.domain;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.time.LocalDateTime;
+import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Getter
 @Setter
 @Entity
 @Table(name="tbl_members")
 @EqualsAndHashCode(of="uid")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Member {
     @Id
     private String uid;
@@ -24,7 +21,7 @@ public class Member {
     private String uname;
 
     @CreationTimestamp
-    private LocalDateTime regdate;
+    private Timestamp regdate;
     @UpdateTimestamp
-    private LocalDateTime updatedate;
+    private Timestamp updatedate;
 }
